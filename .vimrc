@@ -19,13 +19,14 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 " -----------------------------------------------------------------------------
 
 
-set number
+set number         " Show current line number
+set relativenumber " Show relative line numbers
 set ruler
 set autoindent
 set autoread
 set hlsearch
-set nobackup       " no *.~ backup files
-set noundofile     " no *.un~ undo files
+set nobackup       " No *.~ backup files
+set noundofile     " No *.un~ undo files
 set expandtab
 set tabstop=4
 set shiftwidth=4
@@ -33,7 +34,7 @@ set mouse=""
 set encoding=utf-8
 set noshowmode
 set updatetime=100
-" set signcolumn=yes
+set cursorline
 syntax on
 
 
@@ -57,9 +58,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
 Plug 'vimsence/vimsence'
-Plug 'ku1ik/vim-monokai'
-
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
@@ -102,7 +100,7 @@ let g:airline_powerline_fonts = 1
 
 let g:ycm_disable_signature_help = 1
 
-" github issue from https://github.com/ryanoasis/vim-devicons/issues/266
+" Github issue from https://github.com/ryanoasis/vim-devicons/issues/266
 set t_RV=
 
 " -----------------------------------------------------------------------------
@@ -122,8 +120,7 @@ let g:codedark_italics = 1
 let g:codedark_transparent = 1
 let g:airline_theme = 'codedark'
 
-
-colorscheme monokai
+colorscheme codedark
 hi Normal ctermbg=none
 
 
@@ -136,20 +133,32 @@ hi Normal ctermbg=none
 " 5. Mapping ( start )
 " -----------------------------------------------------------------------------
 
-" NERDTree hotkey
-nnoremap <silent> <C-e> :NERDTreeToggle<CR>
-" nnoremap <C-f> :NERDTreeFind<CR>
 
-let mapleader = ","
-" inoremap () ()<Esc>i
-" inoremap [] []<Esc>i
-" inoremap <> <><Esc>i
+let mapleader = " "
+
+" NERDTree hotkey
+nnoremap <silent> <leader>e :NERDTreeToggle<CR>
+
 inoremap {<CR> {<CR>}<Esc>ko
 inoremap jk <Esc>
-nnoremap ;; :w<CR>
-nnoremap <Space> :
-nnoremap <C-j> :bn<CR>
-nnoremap <C-k> :bp<CR>
+
+" buffers
+nnoremap H <CMD>bp<CR>
+nnoremap L <CMD>bn<CR>
+
+" Move to window using the <ctrl> hjkl keys
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Clear search with <esc>
+nnoremap <Esc> <CMD>noh<CR><Esc>
+
+" Save file
+nnoremap <C-s> <CMD>w<CR><Esc>
+nnoremap ;; <CMD>w<CR><Esc>
+
 
 " -----------------------------------------------------------------------------
 " 5. Mapping ( end )
