@@ -2,7 +2,12 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
-local keymap = vim.keymap
+vim.keymap.set("i", "jk", "<Esc>")
+vim.keymap.set("n", "<C-a>", "gg<S-v>G") -- Select all
 
-keymap.set("i", "jk", "<Esc>")
-keymap.set("n", "<C-a>", "gg<S-v>G")
+-- Copilot
+vim.keymap.set("i", "<C-j>", 'copilot#Accept("\\<CR>")', {
+  expr = true,
+  replace_keycodes = false,
+})
+vim.g.copilot_no_tab_map = true
