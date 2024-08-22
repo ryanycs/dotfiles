@@ -9,3 +9,4 @@ vim.opt.hlsearch = true
 vim.opt.autoindent = true
 vim.opt.updatetime = 100
 vim.opt.wrap = true
+vim.opt.mouse = ""

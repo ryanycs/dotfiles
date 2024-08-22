@@ -4,6 +4,7 @@
 
 vim.keymap.set("i", "jk", "<Esc>")
 vim.keymap.set("n", "<C-a>", "gg<S-v>G") -- Select all
+vim.keymap.set("v", "<C-c>", '"+y') -- Copy to clipboard
 
 -- Copilot
 vim.keymap.set("i", "<C-j>", 'copilot#Accept("\\<CR>")', {
