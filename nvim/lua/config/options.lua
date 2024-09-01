@@ -10,3 +10,4 @@ vim.opt.autoindent = true
 vim.opt.updatetime = 100
 vim.opt.wrap = true
 vim.opt.mouse = ""
+vim.g.copilot_no_tab_map = true -- Disable tab mapping for copilot
