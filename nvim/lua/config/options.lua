@@ -9,5 +9,19 @@ vim.opt.hlsearch = true
 vim.opt.autoindent = true
 vim.opt.updatetime = 100
 vim.opt.wrap = true
-vim.opt.mouse = ""
-vim.g.copilot_no_tab_map = true -- Disable tab mapping for copilot
+
+-- terminal on Windows
+if vim.fn.has("win32") then
+  if vim.fn.executable("pwsh") == 1 then
+    vim.opt.shell = "pwsh"
+  else
+    vim.opt.shell = "powershell -nologo"
+  end
+end
+
+-- vscode
+if vim.g.vscode then
+  local vscode = require("vscode")
+  vim.notify = vscode.notify -- use vscode's notify
+  vim.opt.showmode = true -- show mode in status bar
+end

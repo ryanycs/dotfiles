@@ -4,7 +4,7 @@ return {
     opts = {
       close_if_last_window = true,
       window = {
-        width = 25,
+        width = 30,
       },
       filesystem = {
         filtered_items = {
