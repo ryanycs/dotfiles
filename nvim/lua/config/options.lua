@@ -11,12 +11,10 @@ vim.opt.updatetime = 100
 vim.opt.wrap = true
 
 -- terminal on Windows
-if vim.fn.has("win32") then
-  if vim.fn.executable("pwsh") == 1 then
-    vim.opt.shell = "pwsh"
-  else
-    vim.opt.shell = "powershell -nologo"
-  end
+if vim.fn.has("win32") == 1 then
+  vim.opt.shell = "powershell -nologo"
+  vim.opt.shellcmdflag = "-command"
+  vim.opt.shellxquote = ""
 end
 
 -- vscode
