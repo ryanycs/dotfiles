@@ -1,14 +1,11 @@
+if not vim.fn.has("win32") then
+  return {}
+end
+
 return {
   {
-    "andweeb/presence.nvim",
+    "vyfor/cord.nvim",
+    event = "VeryLazy",
     opts = {},
   },
-  -- {
-  --   "vyfor/cord.nvim",
-  --   build = "./build",
-  --   -- event = "VeryLazy",
-  --   opts = {
-  --     log_level = "debug",
-  --   },
-  -- },
 }
