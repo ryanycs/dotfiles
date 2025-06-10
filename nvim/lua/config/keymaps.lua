@@ -4,9 +4,10 @@
 
 vim.keymap.set("i", "jk", "<Esc>") -- jk to escape
 vim.keymap.set("i", "JK", "<Esc>") -- JK to escape
+vim.keymap.set("n", "<Leader>a", "ggVG") -- Select all text in normal mode
 
 -- Windows like keybindings
-vim.keymap.set("n", "<C-v>", '"*p') -- Paste from system clipboard
+vim.keymap.set("n", "<C-v>", '"*P') -- Paste from system clipboard
 vim.keymap.set("v", "<C-c>", '"+y') -- Copy to system clipboard
 if vim.fn.has("win32") == 1 then
   vim.keymap.set("i", "<C-v>", "<C-r>+") -- Paste from system clipboard
