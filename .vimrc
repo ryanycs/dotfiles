@@ -30,11 +30,12 @@ set noundofile     " No *.un~ undo files
 set expandtab
 set tabstop=4
 set shiftwidth=4
-set mouse=""
+set mouse=a
 set encoding=utf-8
 set noshowmode
 set updatetime=100
 set cursorline
+" set signcolumn=yes
 syntax on
 
 
@@ -50,14 +51,17 @@ syntax on
 
 call plug#begin()
 
-Plug 'tomasiser/vim-code-dark'
 Plug 'preservim/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
-Plug 'vimsence/vimsence'
+Plug 'jiangmiao/auto-pairs'
+
+" colorscheme
+Plug 'sainnhe/sonokai'
+" Plug 'tomasiser/vim-code-dark'
 
 call plug#end()
 
@@ -92,6 +96,8 @@ let NERDTreeIgnore=['\.pyc$', '__pycache__']
 " This setting disables the 'Bookmarks' label 'Press ? for help' text.
 let NERDTreeMinimalUI = 1
 
+let NERDTreeWinSize = 25
+
 " Automatically displays all buffers when there's only one tab open.
 let g:airline#extensions#tabline#enabled = 1
 
@@ -112,17 +118,19 @@ set t_RV=
 " 4. Scheme and colors ( start )
 " -----------------------------------------------------------------------------
 
+" Important!!
+if has('termguicolors')
+  set termguicolors
+endif
 
 set background=dark
 
-let g:codedark_modern = 1
-let g:codedark_italics = 1
-let g:codedark_transparent = 1
-let g:airline_theme = 'codedark'
+let g:airline_theme = 'sonokai'
+let g:sonokai_transparent_background = 1
+let g:sonokai_style = 'atlantis'
 
-colorscheme codedark
-hi Normal ctermbg=none
-
+colorscheme sonokai
+" hi Normal ctermbg=none
 
 " -----------------------------------------------------------------------------
 " 4. Scheme and colors ( end )
@@ -134,12 +142,12 @@ hi Normal ctermbg=none
 " -----------------------------------------------------------------------------
 
 
+nnoremap <SPACE> <Nop>
 let mapleader = " "
 
 " NERDTree hotkey
 nnoremap <silent> <leader>e :NERDTreeToggle<CR>
 
-inoremap {<CR> {<CR>}<Esc>ko
 inoremap jk <Esc>
 
 " buffers
